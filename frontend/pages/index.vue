@@ -1,29 +1,18 @@
 <template>
-    <div>
-      <navbar />
-      <home />
-      <!-- <AboutView /> -->
-      <!-- < BlogView /> -->
-      <FooterView />
-    </div>
-  </template>
-  
-  <script>
-  import navbar from "@/components/navbar.vue";
-  import home from "@/components/home.vue";
+  <div>
+    <Home />
+    <LoginForm />
+  </div>
+</template>
 
-  
-  export default {
-    components: {
-      // AboutView,
-      navbar,
-    },
-    data() {
-      return {
-        blogPosts: [],
-      };
-    },
+<script>
+import Home from '@/components/Home.vue';
+import LoginForm from '@/pages/LoginForm.vue';
 
-
-  };
-  </script>
+export default {
+  components: {
+    Home,
+    LoginForm,
+  },
+};
+</script>
