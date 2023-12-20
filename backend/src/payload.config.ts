@@ -1,12 +1,12 @@
 import path from 'path';
-import { payloadCloud } from '@payloadcms/plugin-cloud'; // Import payloadCloud
+import { payloadCloud } from '@payloadcms/plugin-cloud';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { buildConfig } from 'payload/config';
 
 import Users from './collections/Users';
-import accounts from './collections/accounts';
+import Regist from './collections/Regist';
 
 export default buildConfig({
   admin: {
@@ -14,14 +14,14 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, accounts],
+  collections: [Users, Regist],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
   // graphQL: {
   //   schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   // },
-  plugins: [payloadCloud()], // Ensure that payloadCloud is imported and installed
+  plugins: [payloadCloud()],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
